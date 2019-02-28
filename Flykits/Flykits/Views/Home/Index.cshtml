@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Flykits.Models.Kit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>All Entries</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+<div class="card">
+    <div class="section">
+        @Html.DisplayNameFor(model => model.Name)
+        @Html.DisplayFor(modelItem => item.Name)
+    </div>
+    <div class="section">
+        @Html.DisplayNameFor(model => model.Rod)
+        @Html.DisplayFor(modelItem => item.Rod)
+    </div>
+    <div class="section">
+        <img class ="thumb" src = @Html.DisplayFor(modelItem => item.img)>
+    </div>
+    <br />
+    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+</div>
+    }
+
+
+
+
